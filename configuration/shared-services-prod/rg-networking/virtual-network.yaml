@@ -1,5 +1,5 @@
 ---
-bicep_path: virtual-network/virtualNetworkHub.bicep
+bicep_path: virtual-network/mainHub.bicep
 
 params:
   name: Shared-Services-Prod
@@ -7,5 +7,6 @@ params:
   addressPrefixs: "['10.0.0.0/20']"
   firewallSubnetName: AzureFirewallSubnet
   firewallSubnetAddressPrefix: '10.0.3.0/26'
-  vpnSubnetName: Shared-Services-VPN
-  vpnSubnetAddressPrefix: 10.0.2.0/27
+  SubnetName: Shared-Services-VPN
+  SubnetAddressPrefix: 10.0.2.0/27
+  deployFirewall: false

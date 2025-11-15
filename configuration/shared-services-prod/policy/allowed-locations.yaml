@@ -1,5 +1,5 @@
 ---
-bicep_path: azure-policy/built-in-policy/assignAllowedLocations.bicep
+bicep_path: policy/assignAllowedLocations.bicep
 scope: subscription
 
 params:

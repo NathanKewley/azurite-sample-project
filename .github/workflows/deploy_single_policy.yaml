@@ -1,9 +1,7 @@
 name: azurite deploy single policy
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -49,4 +47,3 @@ jobs:
     - name: Deploy
       run: |
         azurite -h
-        

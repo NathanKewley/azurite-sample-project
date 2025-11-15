@@ -6,9 +6,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.8.5]
 
     steps:
     - uses: actions/checkout@v2
@@ -35,7 +32,7 @@ jobs:
         cd Azurite
         pip3 install -r requirements.txt
         python3 -m build
-        pip3 install dist/Azurite-0.0.4-py3-none-any.whl
+        pip3 install Azurite-0.0.4-py3-none-any.whl
         cd ..
 
     # Run required Azurite commands

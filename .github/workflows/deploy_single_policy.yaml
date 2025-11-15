@@ -1,0 +1,52 @@
+name: azurite deploy single policy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8.5]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    # - uses: azure/login@v1
+    #   with:
+    #     creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    # clone the azurite github repo
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        repository: NathanKewley/Azurite 
+        path: Azurite
+
+    # build and install Azurite into the action container
+    - name: Build and Install Azurite
+      run: |
+        cd Azurite
+        pip3 install -r requirements.txt
+        python3 -m build
+        pip3 install dist/Azurite-0.0.4-py3-none-any.whl
+        cd ..
+
+    # Run required Azurite commands
+    - name: Deploy
+      run: |
+        azurite -h
+        

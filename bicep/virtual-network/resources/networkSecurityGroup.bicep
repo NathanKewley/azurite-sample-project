@@ -1,13 +1,13 @@
-param nsgName string
+param networkSecurityGroupName string
 param location string
 
 resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2020-06-01' = {
-  name: nsgName
+  name: networkSecurityGroupName
   location: location
   properties: {
     securityRules: [
       {
-        name: 'DenyAllInBound'
+        name: networkSecurityGroupName
         properties: {
           protocol: 'Tcp'
           sourcePortRange: '*'
@@ -22,3 +22,5 @@ resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2020-06-0
     ]
   }
 }
+
+output networkSecurityGroupId string = networkSecurityGroup.id

@@ -1,5 +1,5 @@
 ---
-bicep_path: virtual-network/peeringConnectionSpoke.bicep
+bicep_path: virtual-network/resources/peeringConnectionSpoke.bicep
 
 params:
   peeringName: shared-services-prod-peer-to-cloudops-prod

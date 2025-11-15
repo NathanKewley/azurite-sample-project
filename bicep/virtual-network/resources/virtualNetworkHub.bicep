@@ -3,8 +3,8 @@ param location string
 param addressPrefixs array
 param firewallSubnetName string
 param firewallSubnetAddressPrefix string
-param vpnSubnetName string
-param vpnSubnetAddressPrefix string
+param SubnetName string
+param SubnetAddressPrefix string
 
 resource virtual_network 'Microsoft.Network/virtualNetworks@2020-08-01' = {
   name: name
@@ -21,9 +21,9 @@ resource virtual_network 'Microsoft.Network/virtualNetworks@2020-08-01' = {
         }
       }
       {
-        name: vpnSubnetName
+        name: SubnetName
         properties: {
-          addressPrefix: vpnSubnetAddressPrefix
+          addressPrefix: SubnetAddressPrefix
         }
       }
     ]

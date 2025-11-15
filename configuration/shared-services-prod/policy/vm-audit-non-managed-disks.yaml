@@ -1,5 +1,5 @@
 ---
-bicep_path: azure-policy/built-in-policy/assignBasicPolicySubscription.bicep
+bicep_path: policy/assignBasicPolicySubscription.bicep
 scope: subscription
 
 params:

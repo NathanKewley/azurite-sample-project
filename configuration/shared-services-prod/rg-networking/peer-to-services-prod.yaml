@@ -1,5 +1,5 @@
 ---
-bicep_path: virtual-network/peeringConnectionHub.bicep
+bicep_path: virtual-network/resources/peeringConnectionHub.bicep
 
 params:
   peeringName: shared-services-prod-peer-to-services-prod

@@ -3,7 +3,7 @@ param location string
 param firewallIPSKU string
 param firewallSKUName string
 param firewallSKUTier string
-param subnetId string
+param virtualNetwork string
 param firewallSubnetName string
 
 resource firewallPublicIP 'Microsoft.Network/publicIPAddresses@2019-11-01' = {
@@ -34,7 +34,7 @@ resource firewall 'Microsoft.Network/azureFirewalls@2020-05-01' = {
             id: firewallPublicIP.id
           }
           subnet: {
-            id: '${subnetId}/subnets/${firewallSubnetName}'
+            id: '${virtualNetwork}/subnets/${firewallSubnetName}'
           }
         }
       }

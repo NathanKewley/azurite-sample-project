@@ -32,11 +32,8 @@ jobs:
         cd Azurite
         pip3 install -r requirements.txt
         python3 -m build
-        ls -all
-        cd dist
-        ls -all
-        pip3 install Azurite-0.0.4-py3-none-any.whl
-        cd ../..
+        pip3 install dist/azurite-0.0.4-py3-none-any.whl
+        cd ..
 
     # Run required Azurite commands
     - name: Deploy
